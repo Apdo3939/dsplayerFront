@@ -1,11 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap');
 
+:root {
+    --dblue: #03032e;
+    --mblue: #0a49e9;
+    --lblue: #0996f3;
+    --light: #f1f1f1;
+    --bg-primary:#a6ce3a;
+    --bg-secondary:#fc8506;
+    --bg-gradient: #f9fd00;
+}
+
 * {
     margin     : 0;
     padding    : 0;
     box-sizing : border-box;
     outline    : none;
     font-family: 'Karla', sans-serif;
+    overflow-x: hidden;
 }
 
 button {
@@ -14,4 +25,44 @@ button {
 
 a {
     text-decoration: none;
+}
+
+.control-container {
+    width: 100vw;
+    height: 100px;
+    background: var(--dblue);
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.buttons-container{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.control-button{
+    background: transparent;
+    border: none;
+    margin: 0 10px;
+
+}
+.control-current{
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;
+}
+
+.player-container{
+    width: 900px;
+}
+
+.control-button-icon{
+    width: 25px;
+    height: 25px;
 }
