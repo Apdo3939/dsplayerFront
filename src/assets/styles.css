@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap');
 
 :root {
-    --dblue: #03032e;
-    --mblue: #0a49e9;
-    --lblue: #0996f3;
-    --light: #f1f1f1;
-    --bg-primary:#a6ce3a;
-    --bg-secondary:#fc8506;
-    --bg-gradient: #f9fd00;
+    --dblue       : #03032e;
+    --dbluet      : #03032ebd;
+    --mblue       : #0a49e9;
+    --lblue       : #0996f3;
+    --light       : #f1f1f1;
+    --bg-primary  : #a6ce3a;
+    --bg-secondary: #9d9aa9;
+    --bg-gradient : #f9fd00;
 }
 
 * {
@@ -16,7 +17,12 @@
     box-sizing : border-box;
     outline    : none;
     font-family: 'Karla', sans-serif;
-    overflow-x: hidden;
+    overflow-x : hidden;
+}
+
+body {
+    width : 100vw;
+    height: 100vh;
 }
 
 button {
@@ -28,41 +34,138 @@ a {
 }
 
 .control-container {
-    width: 100vw;
-    height: 100px;
-    background: var(--dblue);
-    position: absolute;
-    bottom: 0;
-    display: flex;
+    width         : 100%;
+    height        : 100px;
+    background    : var(--dblue);
+    position      : absolute;
+    bottom        : 0;
+    display       : flex;
     flex-direction: row;
-    align-items: center;
-    padding-left: 10px;
+    align-items   : center;
+    padding-left  : 10px;
 }
 
-.buttons-container{
-    flex: 1;
-    display: flex;
-    align-items: center;
+.player-container {
+    width     : 100%;
+    height    : 90vh;
+    background: var(--bg-secondary);
+    color     : var(--light);
+    overflow-y: scroll;
+    padding   : 0 10px 50px 10px;
+}
+
+.buttons-container {
+    flex           : 1;
+    display        : flex;
+    align-items    : center;
     justify-content: center;
 }
 
-.control-button{
+.control-button {
     background: transparent;
-    border: none;
-    margin: 0 10px;
+    border    : none;
+    margin    : 0 10px;
 
 }
-.control-current{
-    width: 80px;
-    height: 80px;
+
+.control-current {
+    width       : 80px;
+    height      : 80px;
     margin-right: 10px;
 }
 
-.player-container{
-    width: 900px;
+.music-container {
+    width         : 90vw;
+    display       : flex;
+    flex-direction: column;
+    align-items   : center;
+    background    : var(--dbluet);
+    cursor        : pointer;
+    margin        : 10px 60px;
 }
 
-.control-button-icon{
-    width: 25px;
+.music-cover {
+    width : 64px;
+    height: 64px;
+}
+
+.music-content {
+    width         : 100%;
+    display       : flex;
+    flex-direction: row;
+    align-items   : center;
+}
+
+.music-content:hover {
+    background: var(--dbluet);
+}
+
+.music-name {
+    flex          : 1;
+    display       : flex;
+    flex-direction: row;
+    margin        : 0 10px;
+    color         : var(--light);
+}
+
+.button-like {
+    background  : transparent;
+    border      : none;
+    margin-right: 25px;
+}
+
+.like {
+    width : 25px;
     height: 25px;
+}
+
+.control-button-icon {
+    width : 25px;
+    height: 25px;
+}
+
+.header-container {
+    width         : 100%;
+    display       : flex;
+    flex-direction: column;
+}
+
+.header-background {
+    background: var(--lblue);
+    background: linear-gradient(180deg,
+            var(--dblue) 0%,
+            var(--dbluet) 100%);
+    width  : 100vw;
+    height : 250px;
+    z-index: 1;
+}
+
+.header-content {
+    width         : 90%;
+    height        : 150px;
+    margin        : 0 auto;
+    display       : flex;
+    flex-direction: row;
+    z-index       : 5;
+    margin-top    : -100px;
+}
+
+.header-cover {
+    width : 150px;
+    height: 150px;
+}
+
+.info {
+    padding-left   : 20px;
+    display        : flex;
+    flex-direction : column;
+    justify-content: center;
+}
+
+h3 {
+    font-size: 2em;
+}
+
+h6 {
+    font-size: 1em;
 }

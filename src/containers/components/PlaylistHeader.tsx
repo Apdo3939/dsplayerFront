@@ -9,7 +9,7 @@ type HeaderProps = {
 const PlaylistHeader = ({ title, subtitle }: HeaderProps) => { 
     return(
         <div className="header-container">
-            <div className="header-background">
+            <div className="header-background" />
                 <div className="header-content">
                     <img src={playlistCover} alt="Capa da play list" className="header-cover"/>
                     <div className="info">
@@ -17,7 +17,6 @@ const PlaylistHeader = ({ title, subtitle }: HeaderProps) => {
                         <h6>{subtitle}</h6>
                     </div>
                 </div>
-            </div>
         </div>
     );
 };
