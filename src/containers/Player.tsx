@@ -1,38 +1,42 @@
 import axios from "axios";
-import { useCallback, useEffect, useState } from "react";
-import { BASE_URL, headerInfo, PlayerResponse } from "../services/api"
+import { useEffect, useState } from "react";
+import { BASE_URL, headerInfo, PlayerMusics} from "../services/api"
 import PlayList from "./components/PlayList";
 import PlaylistHeader from "./components/PlaylistHeader";
 
 const Player = () => {
 
-    const [playerResponse, setPlayerResponse] = useState<PlayerResponse>();
+    const [player, setPlayer] = useState<PlayerMusics>();
     const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState();
 
-    const getPlayers = useCallback(() => {
+    useEffect(() => {
         setIsLoading(true);
         axios.get(`${BASE_URL}/musics`)
             .then((response) => {
                 console.log(response.data);
                 const data = response.data;
-                setPlayerResponse(data.content);
+                setPlayer(data);
             }
             )
-            .catch(() => console.log("Hove erro na requisição!"))
-            .finally(() => setIsLoading(false))
-    }, [])
+            .catch(() => setError(error))
+            .finally(() => setIsLoading(false));
+    }, [error]);
 
-    useEffect(() => {
-        getPlayers();
-    }, [getPlayers]);
+    if (isLoading) {
+        return <p>Carregando as musicas...</p>;
+      }
+    
+      if (error || !Array.isArray(player)) {
+        return <p>Há um erro de carregamento na suas músicas!!!</p>;
+      }
 
     return (
         <div className="player-container">
             <PlaylistHeader {...headerInfo} />
-            {playerResponse?.content &&(setPlayerResponse(playerResponse))}
             {isLoading ?
                 (<h1>Carregando as musicas...</h1>) :
-                (playerResponse?.content.map((play) => (
+                (player.map((play) => (
                     <PlayList playerMusics={play} key={play.id} />
                 )))
             }
